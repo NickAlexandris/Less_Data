@@ -1,0 +1,23 @@
+// THE STRING WE ARE USING IS  STRING
+
+
+Strg_TO_Chars(Strg := STRING,
+              pChars := "DB_LEARN"."pointer", // DATATYPE DInt
+              Cnt => "DB_LEARN".count, //DATATYPE UInt
+              Chars := "DB_LEARN".array_chars); //DATATYPE ARRAY[1..N] OF CHAR
+
+//CONVERT count to int
+#Y := UINT_TO_INT(IN := "DB_LEARN".count);
+
+FOR #i := 1 TO #Y DO
+    
+  
+    "DB_LEARN".HELP :=
+    CHAR_TO_STRING("DB_LEARN".array_chars[#i]);
+    
+  
+    "DB_LEARN".RESULT :=
+    CONCAT(IN1 := "DB_LEARN".RESULT,
+           IN2 := "DB_LEARN".HELP);
+    
+END_FOR;
